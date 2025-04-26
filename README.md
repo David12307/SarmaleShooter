@@ -1,3 +1,3 @@
-# SarmaleShooter
+# SarmaleShooter 🎇
 
 ! Made at HACKOVINA
