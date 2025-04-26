@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarmale Shooter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="sarma.png">
+</head>
+
+<body
+    class="m-0 overflow-hidden font-sans bg-gradient-to-br from-blue-900 via-green-700 to-black min-h-screen flex items-center justify-center">
+
+    <!-- Ecranul de start -->
+    <div id="start-screen" class="flex flex-col items-center justify-center space-y-10">
+        <h1 class="text-5xl font-extrabold text-gray-100 drop-shadow-lg animate-pulse">Alege-ți eroul sarmalelor!</h1>
+
+        <div class="flex space-x-10">
+            <!-- Buton Bunica -->
+            <button id="choose-bunica"
+                class="group flex flex-col items-center space-y-4 transform hover:scale-110 transition duration-300">
+                <div
+                    class="w-32 h-32 rounded-full border-8 border-green-400 overflow-hidden shadow-lg group-hover:shadow-green-500 transition">
+                    <img src="bunica.png" alt="Bunica" class="object-cover w-full h-full">
+                </div>
+                <span class="text-2xl font-bold text-gray-100 group-hover:text-green-300 transition">Bunica</span>
+            </button>
+
+            <!-- Buton Bunicul -->
+            <button id="choose-bunicul"
+                class="group flex flex-col items-center space-y-4 transform hover:scale-110 transition duration-300">
+                <div
+                    class="w-32 h-32 rounded-full border-8 border-green-400 overflow-hidden shadow-lg group-hover:shadow-green-500 transition">
+                    <img src="bunicul.png" alt="Bunicul" class="object-cover w-full h-full">
+                </div>
+                <span class="text-2xl font-bold text-gray-100 group-hover:text-green-300 transition">Bunicul</span>
+            </button>
+        </div>
+
+        <p class="mt-8 text-lg text-gray-300 italic">Cine va apăra sarmalele de invazia copiilor și a nepoților? 😱</p>
+    </div>
+
+    <!-- Ecran de loading -->
+    <div id="loading-screen"
+        class="hidden fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-screen h-screen bg-gradient-to-br from-green-600 via-blue-700 to-black">
+        <h2 class="text-4xl font-bold text-gray-100 mb-6 animate-bounce">Se încălzește cuptorul...</h2>
+        <div class="w-16 h-16 border-4 border-green-400 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+
+    <!-- Ecranul de joc -->
+    <div id="game-screen"
+        class="hidden opacity-0 transition-opacity duration-500 flex flex-col items-center justify-start w-screen h-screen bg-gradient-to-br from-blue-900 via-green-700 to-black">
+
+        <div class="mt-6 p-4 bg-white rounded-3xl shadow-2xl border-4 border-green-400">
+            <canvas id="game" width="480" height="600"
+                class="rounded-2xl shadow-lg bg-gradient-to-b from-green-100 to-blue-200"></canvas>
+        </div>
+
+        <div id="hud" class="mt-6 text-gray-800 text-lg bg-white px-6 py-2 rounded-full shadow-md">
+            Scor: <span id="score">0</span> | Vieți: <span id="lives">3</span>
+        </div>
+    </div>
+
+    <!-- Ecran de Game Over -->
+    <div id="gameOver"
+        class="hidden fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 text-white space-y-8">
+
+        <!-- Icon mare -->
+        <div id="gameOverIcon" class="text-7xl animate-bounce">
+            🏆
+        </div>
+
+        <!-- Mesaj final -->
+        <h2 id="gameOverMessage" class="text-4xl font-extrabold text-center drop-shadow-lg animate-pulse">
+            Legenda Sarmalelor!
+        </h2>
+
+        <!-- Scor -->
+        <p class="text-2xl font-semibold text-gray-300">
+            Scorul tău: <span id="finalScore"></span>
+        </p>
+
+        <!-- Butoane -->
+        <div class="flex space-x-6 mt-4">
+            <button id="reloadButton"
+                class="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold rounded-full shadow-lg transition transform hover:scale-110">
+                Joacă din nou
+            </button>
+            <button id="backToStartButton"
+                class="px-6 py-3 bg-gray-600 hover:bg-gray-500 text-white font-bold rounded-full shadow-lg transition transform hover:scale-110">
+                Ecran Start
+            </button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
